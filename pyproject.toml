@@ -57,8 +57,11 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.setuptools_scm]
-write_to = "pyrokinetics_plugin_examples/_version.py"
+write_to = "src/pyrokinetics_plugin_examples/_version.py"
 
 [tool.isort]
 profile = "black"
@@ -66,3 +69,8 @@ profile = "black"
 [tool.ruff]
 select = ["E", "F", "W", "RUF"]
 ignore-init-module-imports = true
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
