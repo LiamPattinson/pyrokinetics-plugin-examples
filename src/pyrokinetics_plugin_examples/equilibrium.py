@@ -1,6 +1,4 @@
-"""
-Defines a mock Pyrokinetics Equilibrium reader.
-"""
+"""Defines a mock Pyrokinetics Equilibrium reader."""
 
 from pathlib import Path
 
@@ -15,9 +13,7 @@ __all__ = ["make_equilibrium", "EquilibriumReader"]
 
 
 def make_equilibrium() -> Equilibrium:
-    """
-    Creates a fixed Pyrokinetics equilibrium object.
-    """
+    """Creates a fixed Pyrokinetics equilibrium object."""
     # Define default units
     len_units = units.m
     psi_units = units.weber
@@ -85,14 +81,10 @@ def make_equilibrium() -> Equilibrium:
 
 class EquilibriumReader(FileReader, file_type="_test", reads=Equilibrium):
     def read_from_file(self, filename: Path) -> Equilibrium:
-        """
-        Raises exception if reading wrong file, returns standard Equilibrium.
-        """
+        """Raises exception if reading wrong file, returns standard Equilibrium."""
         self.verify_file_type(filename)
         return make_equilibrium()
 
     def verify_file_type(self, filename: Path) -> None:
-        """
-        Raise exception if not passed a "Hello world!" file.
-        """
+        """Raise exception if not passed a "Hello world!" file."""
         verify(filename)

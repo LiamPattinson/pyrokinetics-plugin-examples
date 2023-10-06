@@ -17,8 +17,7 @@ def test_verify(tmp_path: Path):
     verify(filename)
 
     # Modify the file so that it contains something else
-    with open(filename, "w") as f:
-        f.write("Foo\n")
+    filename.write_text("Foo\n")
 
     # Expect verify to raise
     with pytest.raises(Exception):

@@ -21,7 +21,10 @@ classifiers = [
 ]
 
 requires-python = ">=3.8"
-dependencies = ["pyrokinetics"]
+dependencies = [
+  "numpy",
+  "pyrokinetics",
+]
 
 [project.optional-dependencies]
 test = [
@@ -32,19 +35,21 @@ lint = [
   "black",
   "ruff",
   "isort",
+  "refurb; python_version >= '3.10'",
+  "docformatter",
 ]
 
 [project.entry-points."pyrokinetics.equilibrium"]
 _test = "pyrokinetics_plugin_examples.equilibrium:EquilibriumReader"
 
-# [project.entry-points."pyrokinetics.kinetics"]
-# _test = "pyrokinetics-plugin-examples.kinetics:KineticsReader"
+[project.entry-points."pyrokinetics.kinetics"]
+_test = "pyrokinetics_plugin_examples.kinetics:KineticsReader"
 
-# [project.entry-points."pyrokinetics.gkinput"]
-# _test = "pyrokinetics-plugin-examples.gkinput:GKInputReader"
+[project.entry-points."pyrokinetics.gk_input"]
+_test = "pyrokinetics_plugin_examples.gk_input:MyGKInput"
 
-# [project.entry-points."pyrokinetics.gkoutput"]
-# _test = "pyrokinetics-plugin-examples.gkoutput:GKOutputReader"
+[project.entry-points."pyrokinetics.gk_output"]
+_test = "pyrokinetics_plugin_examples.gk_output:GKOutputReader"
 
 [project.urls]
 Source = "https://github.com/LiamPattinson/pyrokinetics-plugin-examples"
@@ -76,3 +81,7 @@ ignore-init-module-imports = true
 addopts = [
     "--import-mode=importlib",
 ]
+
+[tool.docformatter]
+black = true
+recursive = true
