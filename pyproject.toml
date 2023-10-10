@@ -37,6 +37,7 @@ lint = [
   "isort",
   "refurb; python_version >= '3.10'",
   "docformatter",
+  "mypy",
 ]
 
 [project.entry-points."pyrokinetics.equilibrium"]
@@ -85,3 +86,9 @@ addopts = [
 [tool.docformatter]
 black = true
 recursive = true
+
+[[tool.mypy.overrides]]
+module = [
+  "pyrokinetics.*",
+]
+ignore_missing_imports = true
