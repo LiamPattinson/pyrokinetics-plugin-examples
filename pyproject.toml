@@ -23,7 +23,6 @@ classifiers = [
 requires-python = ">=3.8"
 dependencies = [
   "numpy",
-  "pyrokinetics",
 ]
 
 [project.optional-dependencies]
